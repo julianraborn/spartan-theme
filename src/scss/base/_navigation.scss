@@ -1,0 +1,107 @@
+// Add your style here.
+#menu-main-nav {
+	&.et-menu {
+		> li {
+			padding-left: 15px;
+			padding-right: 15px;
+
+			&:not( .menu-item-has-children ) {
+				a:not( [href*='#'] ) {
+					&::after {
+						content: '';
+						width: 100%;
+						height: 3px;
+						display: block;
+						position: absolute;
+						transform: scaleX( 0 ) translateY( 15px );
+						transform-origin: 0 0;
+						transition: all 0.3s ease-in-out;
+					}
+					&:hover {
+						opacity: 1;
+						&::after {
+							transform: scaleX( 1 ) translateY( 15px );
+						}
+					}
+				}
+				a[href*='#'] {
+					opacity: 0.6;
+					cursor: default;
+				}
+			}
+		}
+		.sub-menu {
+			padding: 10px 0;
+			> li {
+				padding: 0;
+				width: 100%;
+
+				a {
+					font-size: 16px;
+					width: 100%;
+					padding: 10px 18px;
+				}
+			}
+		}
+	}
+}
+.et_mobile_nav_menu {
+	.et_mobile_menu {
+		top: calc( 100% + 15px );
+		width: calc( 100% + 60px );
+		margin-left: -30px;
+		margin-right: -30px;
+	}
+}
+
+.mobile_nav {
+	&.opened {
+		.mobile_menu_bar::before {
+			content: '\4d';
+		}
+	}
+}
+
+.et_pb_menu .et_mobile_menu .menu-item-has-children > a,
+.et_pb_fullwidth_menu .et_mobile_menu .menu-item-has-children > a,
+#main-header .et_mobile_menu .menu-item-has-children > a {
+	background-color: transparent;
+	position: relative;
+}
+.et_pb_menu .et_mobile_menu .menu-item-has-children > a::after,
+.et_pb_fullwidth_menu .et_mobile_menu .menu-item-has-children > a::after,
+#main-header .et_mobile_menu .menu-item-has-children > a::after {
+	font-family: 'ETmodules';
+	text-align: center;
+	speak: none;
+	font-weight: 600;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	font-size: 18px;
+	content: '\4c';
+	top: 11px;
+	right: 13px;
+}
+.et_pb_menu .et_mobile_menu .menu-item-has-children.visible > a::after,
+.et_pb_fullwidth_menu
+	.et_mobile_menu
+	.menu-item-has-children.visible
+	> a::after,
+#main-header .et_mobile_menu .menu-item-has-children.visible > a::after {
+	content: '\4d';
+}
+.et_pb_menu .et_mobile_menu ul.sub-menu,
+.et_pb_fullwidth_menu .et_mobile_menu ul.sub-menu,
+#main-header .et_mobile_menu ul.sub-menu {
+	display: none !important;
+	visibility: hidden !important;
+	transition: all 1.5s ease-in-out;
+}
+.et_pb_menu .et_mobile_menu .visible > ul.sub-menu,
+.et_pb_fullwidth_menu .et_mobile_menu .visible > ul.sub-menu,
+#main-header .et_mobile_menu .visible > ul.sub-menu {
+	display: block !important;
+	visibility: visible !important;
+}

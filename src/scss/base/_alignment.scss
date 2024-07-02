@@ -1,0 +1,13 @@
+/* general utility flex rules */
+
+.align-row {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .align-row {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
